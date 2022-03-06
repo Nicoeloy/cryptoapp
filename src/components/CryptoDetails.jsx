@@ -13,10 +13,10 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 const CryptoDetails = () => {
-  const { coinId } = useParams();
+  const { uuid } = useParams();
   const [timeperiod, setTimeperiod] = useState('7d');
-  const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
+  const { data, isFetching } = useGetCryptoDetailsQuery(uuid);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({ uuid, timeperiod });
   const cryptoDetails = data?.data?.coin;
 
   if(isFetching) return 'Loading ...';
